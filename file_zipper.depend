@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1610645032 source:d:\ds lab\open_ended\file_zipper\main.cpp
+	<iostream>
+	<cstdlib>
+

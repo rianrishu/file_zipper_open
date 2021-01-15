@@ -249,39 +249,42 @@ void HuffmanCodes(char data[], int freq[], int size)
 
 void string_char_frequency()
 {
-    string str = "";
-    cout<<"Enter the string:\n";
-
-    cin>>str;
-
-    char arr[str.length() + 1];
-
-    strcpy(arr, str.c_str());
-    cout<<"String to char array conversion:\n";
-    for (int i = 0; i < str.length(); i++)
-        cout << arr[i];
-
-    //counts frequency of each character
-    int i = 0, alphabet[26] = {0}, j;
-    while (arr[i] != '\0')
-    {
-        if (arr[i] >= 'a' && arr[i] <= 'z')
-        {
-            j = arr[i] - 'a';
-            ++alphabet[j];
-        }
-        ++i;
+    char c_arr[30];
+    int freq[26];
+    int i = 0;
+    int j = 0;
+    char ch;
+    cout<<"Enter character (! to exit): \n";
+    cout<<"\nEnter character : ";
+    cin>>c_arr[i];
+    ch = c_arr[i];
+    i++;
+    cout<<"\nEnter frequency of "<<ch<<" : ";
+    cin>>freq[j];
+    j++;
+    while(ch != '!'){
+        cout<<"\nEnter character : ";
+    cin>>c_arr[i];
+    ch = c_arr[i];
+    i++;
+    if(ch == '!'){
+        break;
     }
-    cout<<endl;
-    cout<<"Frequency of all alphabets in the string is:"<<endl;
-    for (i = 0; i < 26; i++)
-        cout<< char(i + 'a')<<" : "<< alphabet[i]<< endl;
-
+    cout<<"\nEnter frequency of "<<ch<<" : ";
+    cin>>freq[j];
+    j++;
+    }
+    char arr[i-1];
+    int f[j-1];
+    for(int k = 0; k<(i-1);k++){
+        arr[k] = c_arr[k];
+        f[k] = freq[k];
+    }
     //huffman
     cout<<"\n"<<"code to be transferred after zipping"<<endl;
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    HuffmanCodes(arr, alphabet, size);
+    HuffmanCodes(arr, f, size);
 
 }
 
